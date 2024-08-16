@@ -32,7 +32,7 @@ typedef struct LibEmbd_Timer_t LibEmbd_Timer_t;
  * 
  * @warning It is undefined behavior to intialize an already initialized timer.
  */
-LIBEMBD_HEADER_API_INLINE Std_ReturnType LIBEMBD_ATTR_ALWAYS_INLINE libembd_make_timer(LibEmbd_Timer_t* timer, LibEmbd_Timer_Type_t timer_type, libembd_timer_task_t timer_task);
+LIBEMBD_HEADER_API_INLINE LibEmbd_Std_ReturnType LIBEMBD_ATTR_ALWAYS_INLINE libembd_make_timer(LibEmbd_Timer_t* timer, LibEmbd_Timer_Type_t timer_type, libembd_timer_task_t timer_task);
 
 /**
  * @brief Arm the timer
@@ -43,7 +43,7 @@ LIBEMBD_HEADER_API_INLINE Std_ReturnType LIBEMBD_ATTR_ALWAYS_INLINE libembd_make
  * 
  * @note It's ok to start an already started timer. The semantics is equivalent to arming the timer with the new timeout value while leaving the timer state unchanged.
  */
-LIBEMBD_HEADER_API_INLINE Std_ReturnType LIBEMBD_ATTR_ALWAYS_INLINE libembd_start_timer(LibEmbd_Timer_t* timer, libembd_timer_duration_ms duration);
+LIBEMBD_HEADER_API_INLINE LibEmbd_Std_ReturnType LIBEMBD_ATTR_ALWAYS_INLINE libembd_start_timer(LibEmbd_Timer_t* timer, libembd_timer_duration_ms duration);
 
 /**
  * @brief Disarm the timer
@@ -125,4 +125,3 @@ LIBEMBD_HEADER_API_INLINE boolean LIBEMBD_ATTR_ALWAYS_INLINE libembd_timer_is_ti
 #include "libembd/internal/libemd_timer_impl.h"
 
 #endif /* LIBEMBD_TIMER_H_ */
-
