@@ -70,7 +70,7 @@ LIBEMBD_LOCAL const libembd_timer_post_expiry_handler_t g_libembd_post_expiry_ha
 
 #define LIBEMBD_TIMER_HANDLE_POST_EXPIRY(timer, timer_type)     (g_libembd_post_expiry_handler_map[timer_type](timer))
 
-LIBEMBD_HEADER_API_INLINE Std_ReturnType libembd_make_timer(LibEmbd_Timer_t* timer, LibEmbd_Timer_Type_t timer_type, libembd_timer_task_t timer_task)
+LIBEMBD_HEADER_API_INLINE LibEmbd_Std_ReturnType libembd_make_timer(LibEmbd_Timer_t* timer, LibEmbd_Timer_Type_t timer_type, libembd_timer_task_t timer_task)
 {
     LIBEMBD_TIMER_CHECK_POINTER_NOT_NULL(timer);
     LIBEMBD_TIMER_CHECK_POINTER_NOT_NULL(timer_task);
@@ -86,7 +86,7 @@ LIBEMBD_HEADER_API_INLINE Std_ReturnType libembd_make_timer(LibEmbd_Timer_t* tim
     return E_OK;
 }
 
-LIBEMBD_HEADER_API_INLINE Std_ReturnType libembd_start_timer(LibEmbd_Timer_t* timer, libembd_timer_duration_ms duration)
+LIBEMBD_HEADER_API_INLINE LibEmbd_Std_ReturnType libembd_start_timer(LibEmbd_Timer_t* timer, libembd_timer_duration_ms duration)
 {
     if(LIBEMBD_IS_TIMER_UNITIALIZED(timer)){
         return E_NOT_OK; //cannot start an unitiialized timer (starting an already started timer is ok)
