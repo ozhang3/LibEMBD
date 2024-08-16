@@ -3,8 +3,7 @@
 
 #include <string.h> //for memcpy
 #include <stdio.h> //for sprintf
-#include <Std_Types.h>
-#include "Platform_Types.h"
+#include "libembd/libembd_platform_types.h"
 
 //! please make sure the following macros are correctly configured!
 /*--------------------------------------------------- Macro Configurations--------------------------------------------------------*/
@@ -99,7 +98,14 @@
     #define LIBEMBD_EXPECT(EXPR) LIBEMBD_ASSERT(EXPR)
 #endif
 
-#define LIBEMBD_ENABLE_DEV_ERROR_CHECK          STD_ON
+#define LIBEMBD_STD_ON  (1)
+#define LIBEMBD_STD_OFF (0)
+
+#define LIBEMBD_ENABLE_DEV_ERROR_CHECK          LIBEMBD_STD_ON
+
+typedef uint8       LibEmbd_Std_ReturnType;
+#define E_OK        ((LibEmbd_Std_ReturnType)0u)
+#define E_NOT_OK    ((LibEmbd_Std_ReturnType)0u)
 
 typedef uint32 LibEmbd_Size_t;
 
